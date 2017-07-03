@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>se.thinkcode.wait</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <name>maven-wait-plugin-parent</name>
+    <description>A maven plugin that will wait for an http resource to become available.</description>
+    <url>https://github.com/tsundberg/maven-wait-plugin</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Thomas Sundberg</name>
+            <email>thomas@thinkcode.se</email>
+            <organization>Think Code AB</organization>
+            <organizationUrl>http://www.thinkcode.se</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/tsundberg/maven-wait-plugin.git</connection>
+        <developerConnection>scm:git:ssh://github.com:tsundberg/maven-wait-plugin.git</developerConnection>
+        <url>https://github.com/tsundberg/maven-wait-plugin</url>
+    </scm>
+
+
+</project>
