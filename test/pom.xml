@@ -16,7 +16,7 @@
         <plugins>
             <plugin>
                 <groupId>se.thinkcode.wait</groupId>
-                <artifactId>wait-plugin</artifactId>
+                <artifactId>http</artifactId>
                 <version>${project.version}</version>
                 <executions>
                     <execution>
