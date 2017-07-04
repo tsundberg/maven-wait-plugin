@@ -6,12 +6,21 @@
 
     <groupId>se.thinkcode.wait</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>maven-wait-plugin-parent</name>
     <description>A maven plugin that will wait for an http resource to become available.</description>
     <url>https://github.com/tsundberg/maven-wait-plugin</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    
+    <modules>
+        <module>wait-plugin</module>
+        <module>test</module>
+    </modules>
 
     <licenses>
         <license>
@@ -34,6 +43,5 @@
         <developerConnection>scm:git:ssh://github.com:tsundberg/maven-wait-plugin.git</developerConnection>
         <url>https://github.com/tsundberg/maven-wait-plugin</url>
     </scm>
-
 
 </project>
