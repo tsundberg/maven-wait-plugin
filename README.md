@@ -58,3 +58,9 @@ allow 1000 milliseconds before a timeout and set the header `applicationId` to `
             </execution>
         </executions>
     </plugin>
+
+## Release
+
+Instructions are available at
+
+http://central.sonatype.org/pages/apache-maven.html
