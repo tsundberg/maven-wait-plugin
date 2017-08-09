@@ -65,7 +65,7 @@ public class HttpWaitMojo extends AbstractMojo {
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             long waitingTime = System.currentTimeMillis() - startTime;
-            getLog().info("Waited for " + waitingTime + "ms");
+            getLog().info("Waited for " + waitingTime + "ms for " + url);
             return;
         }
 
