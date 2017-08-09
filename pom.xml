@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.thinkcode.wait</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>wait-plugin</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
