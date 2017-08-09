@@ -35,10 +35,8 @@ public class HttpWaitMojo extends AbstractMojo {
             long endTime = System.currentTimeMillis() + timeout;
             while (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
                 try {
-                    HttpURLConnection con;
-
                     URL obj = new URL(url);
-                    con = (HttpURLConnection) obj.openConnection();
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                     con.setRequestMethod("GET");
                     con.setConnectTimeout(timeout);
 
