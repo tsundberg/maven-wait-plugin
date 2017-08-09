@@ -49,7 +49,7 @@ allow 1000 milliseconds before a timeout and set the header `applicationId` to `
                     <goal>wait</goal>
                 </goals>
                 <configuration>
-                    <url>http://localhost:4040//geo/rest/v1/gata</url>
+                    <url>http://localhost:4040/geo/rest/v1/gata</url>
                     <timeout>1000</timeout>
                     <headers>
                         <applicationId>Acceptance test</applicationId>
