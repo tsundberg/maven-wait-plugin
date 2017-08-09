@@ -61,6 +61,8 @@ public class WaitTest {
         int wrongPort = 9090;
         waitMojo.url = "http://" + host + ":" + wrongPort + resource;
 
+        waitMojo.timeout = 10;
+
         assertThatExceptionOfType(TimeoutException.class).isThrownBy(
                 () -> waitMojo.execute()
         ).withMessage("Connection to http://localhost:9090/geo/rest/v1/gata?gatunamn=drott timed out");
