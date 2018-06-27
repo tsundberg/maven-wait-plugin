@@ -64,8 +64,16 @@ public class WaitTest {
         waitMojo.timeout = 10;
 
         assertThatExceptionOfType(TimeoutException.class).isThrownBy(
-                () -> waitMojo.execute()
+            () -> waitMojo.execute()
         ).withMessage("Connection to http://localhost:9090/geo/rest/v1/gata?gatunamn=drott timed out");
+    }
+
+    @Test
+    public void skip_wait() throws Exception {
+        waitMojo.url = "http://localhost";
+        waitMojo.skip = true;
+
+        waitMojo.execute();
     }
 
 }
