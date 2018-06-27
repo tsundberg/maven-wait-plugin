@@ -30,7 +30,10 @@ public class HttpWaitMojo extends AbstractMojo {
     boolean skip;
 
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (skip) return;
+        if (skip) {
+            return;
+        }
+
         getLog().info("Waiting for " + url);
         long startTime = System.currentTimeMillis();
 
