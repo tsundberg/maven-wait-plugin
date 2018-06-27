@@ -26,7 +26,11 @@ public class HttpWaitMojo extends AbstractMojo {
     @Parameter
     Map<String, String> headers = Collections.emptyMap();
 
+    @Parameter(property = "http.wait.skip", defaultValue = "false")
+    boolean skip;
+
     public void execute() throws MojoExecutionException, MojoFailureException {
+        if (skip) return;
         getLog().info("Waiting for " + url);
         long startTime = System.currentTimeMillis();
 
