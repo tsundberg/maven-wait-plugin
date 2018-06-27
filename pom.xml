@@ -6,7 +6,7 @@
 
     <groupId>se.thinkcode.wait</groupId>
     <artifactId>wait-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <name>wait-plugin</name>
