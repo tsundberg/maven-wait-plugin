@@ -59,6 +59,18 @@ allow 1000 milliseconds before a timeout and set the header `applicationId` to `
         </executions>
     </plugin>
 
+### Skip waiting
+
+Skip waiting by setting `http.wait.skip` to true
+
+    <http.wait.skip>true</http.wait.skip>
+
+or by passing 
+
+    -Dhttp.wait.skip
+
+when running Maven.
+
 ## Release
 
 Instructions are available at
