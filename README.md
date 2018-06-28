@@ -73,6 +73,5 @@ when running Maven.
 
 ## Release
 
-Instructions are available at
+Instructions are available in [release.md](./release.md) and at [Sonatype](http://central.sonatype.org/pages/apache-maven.html)
 
-http://central.sonatype.org/pages/apache-maven.html
