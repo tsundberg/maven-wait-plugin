@@ -10,10 +10,10 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class WaitTest {
-    private String host = "localhost";
-    private static int port = 8080;
-    private String resource = "/geo/rest/v1/gata?gatunamn=drott";
-    private Map<String, String> headers = new HashMap<>();
+    private final String host = "localhost";
+    private static final int port = 8080;
+    private final String resource = "/geo/rest/v1/gata?gatunamn=drott";
+    private final Map<String, String> headers = new HashMap<>();
 
     private HttpWaitMojo waitMojo;
 
@@ -31,6 +31,7 @@ public class WaitTest {
     public void see_started_application() throws Exception {
         waitMojo.url = "http://" + host + ":" + port + resource;
 
+        waitMojo.timeout = 1000;
         headers.put("applicationId", "Acceptance test");
         waitMojo.headers = headers;
 
@@ -38,8 +39,9 @@ public class WaitTest {
     }
 
     @Test
-    public void missing_header() throws Exception {
+    public void missing_header() {
         waitMojo.url = "http://" + host + ":" + port + resource;
+        waitMojo.timeout = 1000;
         waitMojo.headers = headers;
 
         assertThatExceptionOfType(ConnectionException.class).isThrownBy(
@@ -48,7 +50,7 @@ public class WaitTest {
     }
 
     @Test
-    public void protocol_exception() throws Exception {
+    public void protocol_exception() {
         waitMojo.url = "ht://" + host + ":" + port + resource;
 
         assertThatExceptionOfType(ConnectionException.class).isThrownBy(
@@ -57,7 +59,7 @@ public class WaitTest {
     }
 
     @Test
-    public void connection_timeout() throws Exception {
+    public void connection_timeout() {
         int wrongPort = 9090;
         waitMojo.url = "http://" + host + ":" + wrongPort + resource;
 
