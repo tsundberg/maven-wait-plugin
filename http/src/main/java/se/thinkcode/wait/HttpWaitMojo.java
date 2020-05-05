@@ -40,7 +40,11 @@ public class HttpWaitMojo extends AbstractMojo {
         int responseCode = HttpURLConnection.HTTP_NOT_FOUND;
         try {
             long endTime = System.currentTimeMillis() + timeout;
-            while (responseCode == HttpURLConnection.HTTP_NOT_FOUND && System.currentTimeMillis() < endTime) {
+            while (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
+                if (System.currentTimeMillis() > endTime) {
+                    throw new TimeoutException("Connection to " + url + " timed out");
+                }
+
                 try {
                     URL obj = new URL(url);
                     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
