@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public class WaitTest {
     @Before
     public void setUp() {
         waitMojo = new HttpWaitMojo();
+        waitMojo.waitableStatuses = Collections.singletonList(404);
     }
 
     @Test
@@ -77,5 +79,4 @@ public class WaitTest {
 
         waitMojo.execute();
     }
-
 }

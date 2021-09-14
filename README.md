@@ -71,6 +71,17 @@ or by passing
 
 when running Maven.
 
+### Waitable Status Codes
+
+By default, this plugin waits as long as a `404` response status code is returned. You can configure additional status codes on which the plugin should wait via the `waitableStatuses` configurable element:
+
+    <waitableStatuses>
+        <waitableStatus>404</waitableStatus>
+        <waitableStatus>503</waitableStatus>
+    </waitableStatuses>
+
+This will not append to the default of waiting on `404` responses, so you will need to deliberately specify that here if you wish to continue waiting on such a response status code. 
+
 ## Release
 
 Instructions are available in [release.md](./release.md) and at [Sonatype](http://central.sonatype.org/pages/apache-maven.html)

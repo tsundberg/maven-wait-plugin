@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 @Mojo(name = "wait", threadSafe = true, defaultPhase = LifecyclePhase.PRE_INTEGRATION_TEST)
@@ -29,18 +31,25 @@ public class HttpWaitMojo extends AbstractMojo {
     @Parameter(property = "http.wait.skip", defaultValue = "false")
     boolean skip;
 
+    /**
+     * Defines a list of statuses on which the plugin will continue waiting.
+     */
+    @Parameter(property = "http.wait.statuses", defaultValue = "404")
+    List<Integer> waitableStatuses;
+
     public void execute() throws MojoExecutionException, MojoFailureException {
         if (skip) {
+            getLog().debug("Mojo has been configured to be skipped; no waiting will occur");
             return;
         }
 
-        getLog().info("Waiting for " + url);
+        getLog().info(String.format("Waiting for " + url + " while statuses %s are seen.", waitableStatuses));
         long startTime = System.currentTimeMillis();
 
         int responseCode = HttpURLConnection.HTTP_NOT_FOUND;
         try {
             long endTime = System.currentTimeMillis() + timeout;
-            while (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
+            do {
                 if (System.currentTimeMillis() > endTime) {
                     throw new TimeoutException("Connection to " + url + " timed out");
                 }
@@ -67,7 +76,7 @@ public class HttpWaitMojo extends AbstractMojo {
                 }
 
                 Thread.sleep(100);
-            }
+            } while (waitableStatuses.contains(responseCode));
         } catch (InterruptedException e) {
             getLog().error(e);
         }
