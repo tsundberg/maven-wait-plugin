@@ -30,7 +30,7 @@ public class WaitTest {
     }
 
     @Test
-    public void see_started_application() throws Exception {
+    public void see_started_application() {
         waitMojo.url = "http://" + host + ":" + port + resource;
 
         waitMojo.timeout = 1000;
@@ -73,7 +73,7 @@ public class WaitTest {
     }
 
     @Test
-    public void skip_wait() throws Exception {
+    public void skip_wait() {
         waitMojo.url = "http://localhost";
         waitMojo.skip = true;
 

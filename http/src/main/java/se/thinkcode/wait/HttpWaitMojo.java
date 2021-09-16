@@ -1,8 +1,6 @@
 package se.thinkcode.wait;
 
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -11,7 +9,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +34,7 @@ public class HttpWaitMojo extends AbstractMojo {
     @Parameter(property = "http.wait.statuses", defaultValue = "404")
     List<Integer> waitableStatuses;
 
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() {
         if (skip) {
             getLog().debug("Mojo has been configured to be skipped; no waiting will occur");
             return;
@@ -75,6 +72,7 @@ public class HttpWaitMojo extends AbstractMojo {
                     }
                 }
 
+                //noinspection BusyWait
                 Thread.sleep(100);
             } while (waitableStatuses.contains(responseCode));
         } catch (InterruptedException e) {
